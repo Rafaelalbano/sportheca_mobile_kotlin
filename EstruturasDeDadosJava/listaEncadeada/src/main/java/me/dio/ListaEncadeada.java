@@ -36,6 +36,18 @@ public class ListaEncadeada<T> {
         return noRetorno;
     }
 
+    public T remove(int index){
+        No<T> noPivot = this.getNo(index);
+        if (index == 0){
+            referenciaEntrada = noPivot.getProximoNo();
+            return noPivot.getConteudo();
+        }
+
+        No<T> noAnterior = getNo(index - 1);
+        noAnterior.setProximoNo(noPivot.getProximoNo());
+        return noPivot.getConteudo();
+    }
+
     public int size(){
         int tamanhoLista = 0;
         No<T> referenciaAux = referenciaEntrada;
